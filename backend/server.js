@@ -1,7 +1,8 @@
 //importation du package http de Node,permettant de créer un serveur, puis import de l'API
-
 const http = require('http');
 const app = require('./app');
+
+const mongoose = require('mongoose');
 
 /*la fonction normalizePort renvoie un port valide, qu'il soit fourni 
 sous la forme d'un numéro ou d'une chaîne*/
