@@ -40,3 +40,18 @@ const errorHandler = error => {
       throw error;
   }
 };
+
+//Serveur prêt
+const server = http.createServer(app);
+
+
+//un écouteur d'évènements est également enregistré, consignant le port ou le canal nommé sur lequel le serveur s'exécute dans la console
+server.on('error', errorHandler);
+server.on('listening', () => {
+  const address = server.address();
+  const bind = typeof address === 'string' ? 'pipe ' + address : 'port ' + port;
+  console.log('Listening on ' + bind);
+});
+
+//écoute de la requête via un port qui est par defaut le 3000
+server.listen(port);
