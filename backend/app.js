@@ -1,6 +1,8 @@
 //importation de Express
 const express = require('express');
 const bodyParser = require('body-parser');
+//importation des routeurs
+const userRoutes = require('./routes/user');
 
 const mongoose = require('mongoose');
 
@@ -28,6 +30,9 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 
+
+//pour cette route, on utilise la logique du routeur (userRoutes)
+app.use('/api/auth', userRoutes);
 
 /*** Exportation de l'app pour pouvoir y accéder depuis les 
 autres fichiers du projet, notamment notre serveur Node ***/
