@@ -2,7 +2,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 //importation des routeurs
+const sauceRoutes = require('./routes/sauces');
 const userRoutes = require('./routes/user');
+
+const path = require('path');
 
 const mongoose = require('mongoose');
 
@@ -30,9 +33,11 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
-//pour cette route, on utilise la logique du routeur (userRoutes)
+//pour cette route, on utilise la logique du routeur (userRoutes et sauceRoutes)
 app.use('/api/auth', userRoutes);
+app.use('/api/sauces', sauceRoutes);
 
 /*** Exportation de l'app pour pouvoir y accéder depuis les 
 autres fichiers du projet, notamment notre serveur Node ***/
