@@ -14,16 +14,7 @@ exports.createSauce = (req, res, next) => {
     .catch(error => res.status(400).json({ error }));
 };
 
-/*exports.likedSauce = (req, res, next) => {
-  const sauceLikesObj = JSON.parse(req.body.likes);
-  const sauce = new Sauce({
-    userId: req.body._id,
-    j'aime: req.body.
-  });
-  sauce.save()
-    .then(() => res.status(201).json({ message: 'Sauce aimée !'}))
-    .catch(error => res.status(400).json({ error }));
-};*/
+
 // Controlleur d'affichage d'une sauce
 exports.getOneSauce = (req, res, next) => {
     Sauce.findOne({_id: req.params.id})
@@ -31,6 +22,7 @@ exports.getOneSauce = (req, res, next) => {
     .catch((error) => {res.status(404).json({error});
   });
 };
+
 
 // Controlleur de modification d'une sauce
 exports.modifySauce = (req, res, next) => {
