@@ -6,9 +6,9 @@ const userSchema = mongoose.Schema({
   password: { type: String, required: true }
 });
 
-/*Dans notre schéma, la valeur unique , avec l'élément mongoose-unique-validator 
+/*** Dans notre schéma, la valeur unique , avec l'élément mongoose-unique-validator 
 passé comme plug-in s'assurera qu'aucun 
-des deux utilisateurs ne peut partager la même adresse e-mail. */
+des utilisateurs ne peut partager la même adresse e-mail. ***/
 userSchema.plugin(uniqueValidator);
 
 module.exports = mongoose.model('User', userSchema);
