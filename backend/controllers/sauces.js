@@ -22,8 +22,8 @@ exports.createSauce = (req, res, next) => {
 /*exports.likedSauce = (req, res, next) => {
   const sauceLikesObj = JSON.parse(req.body.likes);
   const sauce = new Sauce({
-    ...sauceObject,
-    imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+    userId: req.body._id,
+    j'aime: req.body.
   });
   sauce.save()
     .then(() => res.status(201).json({ message: 'Sauce aimée !'}))
