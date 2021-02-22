@@ -3,11 +3,11 @@ const fs = require('fs');
 
 // Controlleur de création d'une sauce
 exports.createSauce = (req, res, next) => {
-  const sauceObject = JSON.parse(req.body.sauce);
+  const sauceObject = JSON.parse(req.body.sauce);  //On extrait l'objet JSON du modèle sauce
   delete sauceObject._id;
   const sauce = new Sauce({
     ...sauceObject,
-    imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`  //Nous utilisons req.protocol pour obtenir le premier segment (dans notre cas 'http' ).
+    imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`  // Génération de l'url de l'img.Nous utilisons req.protocol pour obtenir le premier segment (dans notre cas 'http' ).
   });
   sauce.save()
     .then(() => res.status(201).json({ message: 'Sauce enregistrée !'}))
@@ -36,10 +36,10 @@ exports.getOneSauce = (req, res, next) => {
 
 // Controlleur de modification d'une sauce
 exports.modifySauce = (req, res, next) => {
-  const sauceObject = req.file ?  //Création de l'objet sauceObject pour vérifier si req.file existe ou non
+  const sauceObject = req.file ?  // Création de l'objet sauceObject pour vérifier si l'User remplace l'img ou non
     {
       ...JSON.parse(req.body.sauce),
-      imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`  // S'il existe, on traite la nouvelle image, sinon on traite simplement l'objet entrant.
+      imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`  // Si oui, on traite la nouvelle image, sinon on traite simplement l'objet entrant('...req.body').
     } : { ...req.body };
   Sauce.updateOne({ _id: req.params.id }, { ...sauceObject, _id: req.params.id })  //On crée ensuite une instance Sauce à partir de sauceObject , puis on effectue la modification.
     .then(() => res.status(200).json({ message: 'Sauce modifié !'}))
