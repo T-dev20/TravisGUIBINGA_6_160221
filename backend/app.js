@@ -29,7 +29,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(bodyParser.json());
+app.use(bodyParser.json());  // Pour toutes les routes de l'app, on transforme le corps de la req en objet JavaScript utilisable
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
