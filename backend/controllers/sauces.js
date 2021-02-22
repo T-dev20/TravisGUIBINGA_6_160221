@@ -23,6 +23,16 @@ exports.getOneSauce = (req, res, next) => {
   });
 };
 
+/*exports.sauceLikeOrDislik = (req, res, next) => {
+  const sauceObject = req.file ?  //Création de l'objet sauceObject pour vérifier si req.file existe ou non
+    {
+      ...JSON.parse(req.body.sauce),
+    } : { ...req.body };
+  Sauce.updateOne({ _id: req.params.id }, { ...sauceObject, _id: req.params.id })  //On crée ensuite une instance Sauce à partir de sauceObject , puis on effectue la modification.
+    .then(() => res.status(200).json({ message: 'Sauce modifié !'}))
+    .catch(error => res.status(400).json({ error }));
+};*/
+
 
 // Controlleur de modification d'une sauce
 exports.modifySauce = (req, res, next) => {
