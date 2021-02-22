@@ -5,7 +5,7 @@ const User = require('../models/user');
 
 //il s'agit d'une fonction asynchrone qui renvoie une Promise dans laquelle nous recevons le hash généré ;
 exports.signup = (req, res, next) => {
-  bcrypt.hash(req.body.password, 10)  // Hashage de mot de passe avec un salt de 10 
+  bcrypt.hash(req.body.password, 10)  // Hashage de mot de passe avec un salt de 10 tours(nbre de fois d'éxécution de l'olgorithme de hashage).
     .then(hash => {
       const user = new User({
         email: req.body.email,
