@@ -32,8 +32,8 @@ exports.login = (req, res, next) => {
           res.status(200).json({
             userId: user._id,                           // Dans la réponse on renvoie le user._id (id généré par mongoDB automatiquement)
             token: jwt.sign(                            // Envoi du token d'authentification
-              { userId: user._id },                     
-              'RANDOM_TOKEN_SECRET',
+              { userId: user._id },                     // Encodage du UserId pour qu'un User ne puisse pas modifier la sauce d'un autre User.
+              'RANDOM_TOKEN_SECRET',                    // Clef secrète d'encodage
               { expiresIn: '24h' }
             )
           });
