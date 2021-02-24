@@ -23,15 +23,18 @@ exports.getOneSauce = (req, res, next) => {
   });
 };
 
-/*exports.sauceLikeOrDislik = (req, res, next) => {
-  const sauceObject = req.file ?  //Création de l'objet sauceObject pour vérifier si req.file existe ou non
-    {
-      ...JSON.parse(req.body.sauce),
-    } : { ...req.body };
-  Sauce.updateOne({ _id: req.params.id }, { ...sauceObject, _id: req.params.id })  //On crée ensuite une instance Sauce à partir de sauceObject , puis on effectue la modification.
-    .then(() => res.status(200).json({ message: 'Sauce modifié !'}))
-    .catch(error => res.status(400).json({ error }));
-};*/
+exports.sauceLikeOrDislik = (req, res, next) => {
+  switch (req.body.like) {
+     case 1:                                                // cas: req.body.like = 1
+      Sauce.updateOne({ _id: req.params.id }, {             // on recherche la sauce avec le _id présent dans la requête
+        $incrementLike: { likes: 1 },                       // incrémentaton de la valeur de likes.
+        $push: { usersLiked: req.body.userId }              // on ajoute l'utilisateur dans le array usersLiked.
+      })
+        .then(() => { res.status(201).json({ message: "Sauce likée !" }); }) //code 201: created
+        .catch((error) => { res.status(400).json({ error }); });          //code 400: bad request
+      break;
+  }
+};
 
 
 // Controlleur de modification d'une sauce
