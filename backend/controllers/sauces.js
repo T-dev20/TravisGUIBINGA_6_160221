@@ -27,12 +27,23 @@ exports.sauceLikeOrDislik = (req, res, next) => {
   switch (req.body.like) {
      case 1:                                                // cas: req.body.like = 1
       Sauce.updateOne({ _id: req.params.id }, {             // on recherche la sauce avec le _id présent dans la requête
-        $incrementLike: { likes: 1 },                       // incrémentaton de la valeur de likes.
+        $inc: { likes: 1 },                                 // incrémentaton de la valeur de likes.
         $push: { usersLiked: req.body.userId }              // on ajoute l'utilisateur dans le array usersLiked.
       })
         .then(() => { res.status(201).json({ message: "Sauce likée !" }); }) //code 201: created
         .catch((error) => { res.status(400).json({ error }); });          //code 400: bad request
       break;
+     
+     case -1 :
+      Sauce.updateOne({ _id: req.params.id }, {               // on recherche la sauce avec le _id présent dans la requête
+        $inc: { dislikes: 1 },                                // décrémentaton de la valeur de dislikes.
+        $push: { usersDisliked: req.body.userId }             // on rajoute l'utilisateur à l'array usersDiliked.
+      })
+        .then(() => { res.status(201).json({ message: "Sauce dislikée !" }); }) // code 201: created
+        .catch((error) => { res.status(400).json({ error }); }); // code 400: bad request
+      break;
+    default:
+      console.error("bad request");
   }
 };
 
