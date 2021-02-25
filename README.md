@@ -1,7 +1,8 @@
 # TravisGuibinga_6_160221
 Construction d'une API sécurisée pour une application d'avis gastronomique.
 
-Présentation
+Présentation :
+
 Le site SO PEKOCKO est un site d'avis gastronomiques où les utilisateurs peuvent mettre en ligne des sauces piquantes selon leurs préférances, incluant la possibilité de "liker" ou "disliker" ces sauces.
 
 Objectif: permettre à l'internaute de s'inscrire sur le site et de pouvoir:
@@ -27,7 +28,7 @@ Avec un terminal, aller dans le dossier backend, puis:
 
         -taper: "npm install",
         -puis: "nodemon server",
-        -le serveur écoute sur le port 3000: http://localhost:3000
+        -le serveur écoute le port 3000: http://localhost:3000
 Arrivé à ce point, vous pouvez utiliser les fonctionnalités du site.
 
 PS: le travail présenté ici a été réalisé pour la partie backend. La partie frontend originelle se trouve à l'adresse suivante: https://github.com/OpenClassrooms-Student-Center/dwj-projet6
