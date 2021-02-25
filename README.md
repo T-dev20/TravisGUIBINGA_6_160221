@@ -14,7 +14,9 @@ Objectif : permettre à l'internaute de s'inscrire sur le site et de pouvoir :
 - liker ou disliker les sauces enregistrées sur le site.
 
 Instructions pour le lancement du projet: partie Frontend et partie Backend
+
 Partie frontend
+
 Précision: il faut installer node-sass à part.
 
 Avec un terminal, aller dans le dossier "frontend" puis:
@@ -24,7 +26,8 @@ Avec un terminal, aller dans le dossier "frontend" puis:
         - enfin: dans votre navigateur se rendre à l'adresse: http://localhost:4200 
         
 Partie backend
-Avec un terminal, aller dans le dossier backend, puis:
+
+Présicion : Avec un terminal, aller dans le dossier backend, puis:
 
         -taper: "npm install",
         -puis: "nodemon server",
