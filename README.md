@@ -5,7 +5,7 @@ Présentation :
 
 Le site SO PEKOCKO est un site d'avis gastronomiques où les utilisateurs peuvent mettre en ligne des sauces piquantes selon leurs préférances, incluant la possibilité de "liker" ou "disliker" ces sauces.
 
-Objectif: permettre à l'internaute de s'inscrire sur le site et de pouvoir:
+Objectif : permettre à l'internaute de s'inscrire sur le site et de pouvoir :
 
 - consulter toutes les sauces enregistrées,
 - créer des sauces,
