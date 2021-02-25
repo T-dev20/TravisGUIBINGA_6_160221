@@ -27,10 +27,7 @@ exports.sauceLikeOrDislik = (req, res, next) => {
   switch (req.body.like) {
      case 0:                                                   //cas: req.body.like = 0
       Sauce.findOne({ _id: req.params.id })
-        .then((sauce) => {
-          if (sauce.usersLiked.find( user => user === req.body.userId)) {  // on cherche si l'utilisateur est déjà dans le tableau usersLiked
-            
-          } 
+        
       break;
 
      case 1:                                                // cas: req.body.like = 1
