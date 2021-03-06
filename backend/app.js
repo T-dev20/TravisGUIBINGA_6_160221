@@ -34,8 +34,8 @@ app.use(bodyParser.json());  // Pour toutes les routes de l'app, on transforme l
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
 //pour cette route, on utilise la logique du routeur (userRoutes et sauceRoutes)
-app.use('/api/auth', userRoutes);
 app.use('/api/sauces', sauceRoutes);
+app.use('/api/auth', userRoutes);
 
 // Exportation de l'app pour pouvoir y accéder depuis les autres fichiers du projet, notamment notre serveur Node.
 module.exports = app;
