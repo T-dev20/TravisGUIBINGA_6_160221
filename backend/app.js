@@ -1,7 +1,7 @@
 const express = require('express');  // Importation de Express
 const bodyParser = require('body-parser');  // Importation de body-parser: analysee les corps de requêtes entrants dans un middleware
 //importation des routeurs
-const sauceRoutes = require('./routes/sauces');
+const sauceRoutes = require('./routes/sauce');
 const userRoutes = require('./routes/user');
 
 const path = require('path');  // Import de path: fournit un moyen de travailler avec les répertoires et les chemins de fichiers.
