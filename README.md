@@ -1,4 +1,4 @@
-# TravisGuibinga_6_160221
+# PROJET6_OPENCLASSROOMS/TravisGuibinga
 Construction d'une API sécurisée pour une application d'avis gastronomique.
 
 Présentation :
